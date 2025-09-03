@@ -1,0 +1,9 @@
+services:
+  app:
+    platform: linux/amd64
+    image: ghcr.io/lowjungxuan98/devops:sha-a591857
+    environment:
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
