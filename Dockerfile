@@ -14,6 +14,7 @@ FROM node:alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 RUN apk add --no-cache libc6-compat openssl && addgroup -S nodejs && adduser -S nextjs -G nodejs
 COPY --from=build /app/.next/standalone ./
 COPY --from=build /app/.next/static ./.next/static
