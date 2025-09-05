@@ -45,6 +45,10 @@ jobs:
           images: ${{ steps.vars.outputs.image }}
           tags: |
             type=raw,value=${{ github.run_number }}
+          labels: |
+            org.opencontainers.image.title=devops-${{ secrets.NODE_ENV }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.description=Quick start: docker run --rm -it -p 0.0.0.0:4000:3000 ${{ steps.vars.outputs.image }}:${{ github.run_number }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
